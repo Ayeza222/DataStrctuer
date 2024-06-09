@@ -1,0 +1,19 @@
+Dijkstra's Algorithm:
+
+from heapq import heappush, heappop
+
+def dijkstra(graph, src):
+  dist = [float('inf')] * graph.V
+  dist[src] = 0
+  pq = [(dist[src], src)]
+
+  while pq:
+    u, _ = heappop(pq)
+
+    for neighbor, weight in graph.adj[u]:
+      alt = dist[u] + weight
+      if alt < dist[neighbor]:
+        dist[neighbor] = alt
+        heappush(pq, (alt, neighbor))
+
+  return dist
