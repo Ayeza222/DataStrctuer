@@ -1,0 +1,11 @@
+Reading Graph Data from File:
+
+def read_graph_from_file(filename):
+  with open(filename, 'r') as f:
+    lines = f.readlines()
+    num_vertices, num_edges = map(int, lines[0].split())
+    graph = Graph(num_vertices)
+    for line in lines[1:]:
+      u, v, weight = map(int, line.split())
+      graph.add_edge(u, v, weight)
+  return graph
