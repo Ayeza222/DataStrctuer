@@ -1,0 +1,21 @@
+Bellman-Ford Algorithm:
+
+def bellman_ford(graph, src):
+  dist = [float('inf')] * graph.V
+  dist[src] = 0
+
+  for _ in range(graph.V - 1):
+    for u in range(graph.V):
+      for neighbor, weight in graph.adj[u]:
+        alt = dist[u] + weight
+        if alt < dist[neighbor]:
+          dist[neighbor] = alt
+
+  # Check for negative-weight cycles
+  for u in range(graph.V):
+    for neighbor, weight in graph.adj[u]:
+      if dist[u] + weight < dist[neighbor]:
+        print("Graph contains negative weight cycle")
+        return
+
+  return dist
