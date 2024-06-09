@@ -1,0 +1,17 @@
+Putting it Together:
+
+def main():
+  filename = "graph.txt"  # Replace with your actual file name
+  graph = read_graph_from_file(filename)
+  src = 0  # Change this to your desired source node
+
+  # Find shortest paths using Dijkstra's algorithm
+  dist_dijkstra = dijkstra(graph, src)
+  print("Shortest distances from source using Dijkstra's Algorithm:", dist_dijkstra)
+
+  # Find shortest paths using Bellman-Ford algorithm
+  dist_bellman_ford = bellman_ford(graph, src)
+  print("Shortest distances from source using Bellman-Ford Algorithm:", dist_bellman_ford)
+
+if __name__ == "__main__":
+  main()
